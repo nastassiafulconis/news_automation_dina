@@ -5,12 +5,30 @@ This program summarizes news articles most recently published when given a keywo
 ## Running this Program
 
 1. First, get an API key from the [News API](https://newsapi.org/account). Save it somewhere you won't forget!
-
 2. Next, install dependencies. You will need to [install Rust](https://www.rust-lang.org/tools/install).
 3. Then, clone the repository using `git clone https://github.com/nastassiafulconis/news_automation_dina.git` or download the ZIP file.
 4. Navigate to the repository, and run `cargo build --release`.
 5. To run the program, run `./target/release/news_automation`.
 6. Follow the prompts. The program will ask you for keywords and your API key!
+
+### Download Program
+
+Alternatively, ask me for a presigned URL to download the program. 
+
+After you have downloaded it, navigate to the folder the program is in and run these commands: 
+
+```bash
+chmod +x news_automation
+xattr -d com.apple.quarantine news_automation
+```
+
+These commands give your user access to the program and remove the Apple quarantine on it (I promise I'm not sending you malware 😅).
+
+You should now be able to run the program from the folder using this command: 
+
+```bash
+./news_automation
+```
 
 ## Example
 
@@ -31,4 +49,6 @@ Title: Australia tries to stop a violence against women 'epidemic', starting wit
 BBC News | 2024-05-11T05:04:00Z
 Description: As the nation reels from the Bondi Junction stabbings, what can be done to shift behaviour?
 URL: https://www.bbc.co.uk/news/world-australia-68989354
+
+...
 ```
