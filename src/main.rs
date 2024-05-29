@@ -1,6 +1,7 @@
 use reqwest::Error;
 use serde::Deserialize;
 use std::io;
+use chrono::{Duration, Utc};
 
 #[allow(non_snake_case)]
 #[derive(Deserialize, Debug)]
@@ -39,8 +40,11 @@ async fn main() -> Result<(), Error> {
     io::stdin().read_line(&mut api_key).expect("Failed to read line");
     let api_key = api_key.trim();
 
+    let today = Utc::now().date_naive();
+    let from_date = today - Duration::days(5);
+
     // Create the URL
-    let url = format!("https://newsapi.org/v2/everything?q={}&apiKey={}", query, api_key);
+    let url = format!("https://newsapi.org/v2/everything?q=\"{}\"&sortBy=relevancy&from={}&to={}&language=en&apiKey={}", query, from_date, today, api_key);
 
     let client = reqwest::Client::new();
     // Send the request
